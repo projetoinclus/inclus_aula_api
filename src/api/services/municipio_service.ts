@@ -1,9 +1,9 @@
 import { dataSource } from "../..";
-import { Regiao } from "../entities/Regiao";
+import { Municipio } from "../entities/Municipio";
 import { Request, Response } from "express";
 
-export async function getAllRegiao(req: Request, res: Response) {
-  const repository = dataSource.getRepository(Regiao);
+export async function getAllMunicipio(req: Request, res: Response) {
+  const repository = dataSource.getRepository(Municipio);
   const objects = await repository.find();
 
   try {
@@ -21,8 +21,8 @@ export async function getAllRegiao(req: Request, res: Response) {
   }
 }
 
-export async function getIdRegiao(req: Request, res: Response) {
-  const repository = dataSource.getRepository(Regiao);
+export async function getIdMunicipio(req: Request, res: Response) {
+  const repository = dataSource.getRepository(Municipio);
   const id: number = Number(req.params.id);
   const object = await repository.findOneBy({ id });
 
@@ -41,8 +41,8 @@ export async function getIdRegiao(req: Request, res: Response) {
   }
 }
 
-export async function createRegiao(req: Request, res: Response) {
-  const repository = dataSource.getRepository(Regiao);
+export async function createMunicipio(req: Request, res: Response) {
+  const repository = dataSource.getRepository(Municipio);
   const body = req.body;
   const objectCreate = repository.create(body);
   const object = await repository.save(objectCreate);
@@ -62,8 +62,8 @@ export async function createRegiao(req: Request, res: Response) {
   }
 }
 
-export async function updateRegiao(req: Request, res: Response) {
-  const repository = dataSource.getRepository(Regiao);
+export async function updateMunicipio(req: Request, res: Response) {
+  const repository = dataSource.getRepository(Municipio);
   const id: number = Number(req.params.id);
   const body = req.body;
   const result = await repository.update({ id }, body);
@@ -84,8 +84,8 @@ export async function updateRegiao(req: Request, res: Response) {
   }
 }
 
-export async function deleteRegiao(req: Request, res: Response) {
-  const repository = dataSource.getRepository(Regiao);
+export async function deleteMunicipio(req: Request, res: Response) {
+  const repository = dataSource.getRepository(Municipio);
   const id: number = Number(req.params.id);
   const result = await repository.delete({ id });
 
